@@ -1,15 +1,12 @@
 "use strict";
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable("user_game_histories", {
+    await queryInterface.createTable("User_game_histories", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
-      },
-      game_played: {
-        type: Sequelize.STRING,
       },
       last_time_played: {
         type: Sequelize.STRING,
@@ -21,9 +18,8 @@ module.exports = {
         type: Sequelize.INTEGER,
         onDelete: "CASCADE",
         references: {
-          model: "user_games",
+          model: "User_games",
           key: "id",
-          as: "userId",
         },
       },
       createdAt: {
@@ -37,6 +33,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable("user_game_histories");
+    await queryInterface.dropTable("User_game_histories");
   },
 };
