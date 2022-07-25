@@ -62,10 +62,10 @@ const updateUser = async (userId, username, password) => {
   );
 };
 
-// Delete User From Database
-const deleteUser = async (id) => {
+// Delete User
+const deleteUser = async (userId) => {
   return await User_game.destroy({
-    where: { id: id },
+    where: { id: userId },
   });
 };
 
